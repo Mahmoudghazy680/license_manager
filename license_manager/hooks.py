@@ -5,6 +5,27 @@ app_description = "Offline license enforcement system for ERPNext"
 app_email = "admin@license-manager.local"
 app_license = "mit"
 
+# ── Auth hooks ────────────────────────────────────────────────────────────────
+# Called on every authenticated request. Validates the license file and blocks
+# non-admin users when no valid license is present.
+auth_hooks = ["license_manager.auth.check_license"]
+
+# ── Bench CLI commands ────────────────────────────────────────────────────────
+# Frappe v15 auto-discovers CLI commands from license_manager/commands/__init__.py
+# (bench_helper imports {app}.commands and reads the `commands` list).
+# No explicit hook needed — the commands module is the registration mechanism.
+
+# ── Scheduler events ──────────────────────────────────────────────────────────
+# Runs daily to warn administrators when the license is expiring soon.
+scheduler_events = {
+    "daily": ["license_manager.tasks.daily_license_check"],
+}
+
+# ── Override whitelisted methods ──────────────────────────────────────────────
+# Placeholder — add method overrides here when needed.
+# override_whitelisted_methods = {}
+
+
 # Apps
 # ------------------
 

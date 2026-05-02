@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "creation": "2026-05-02 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Other",
+ "engine": "InnoDB",
+ "field_order": [
+  "license_file_content",
+  "license_id",
+  "customer",
+  "issue_date",
+  "expiry",
+  "features",
+  "node_id",
+  "status",
+  "computed_node_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "license_file_content",
+   "fieldtype": "Code",
+   "label": "License File Content",
+   "options": "JSON",
+   "description": "Paste the full contents of the .lic JSON file here, then save."
+  },
+  {
+   "fieldname": "license_id",
+   "fieldtype": "Data",
+   "label": "License ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expiry",
+   "fieldtype": "Date",
+   "label": "Expiry Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "features",
+   "fieldtype": "Small Text",
+   "label": "Licensed Features",
+   "read_only": 1
+  },
+  {
+   "fieldname": "node_id",
+   "fieldtype": "Data",
+   "label": "License Node ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Not Activated\nValid\nExpired\nInvalid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "computed_node_id",
+   "fieldtype": "Data",
+   "label": "This Machine's Node ID",
+   "read_only": 1,
+   "description": "The node ID computed for this machine. Share this with the vendor to obtain a license."
+  }
+ ],
+ "is_single": 1,
+ "issingle": 1,
+ "modified": "2026-05-02 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "License Manager",
+ "name": "Site License",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
