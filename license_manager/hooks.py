@@ -1,8 +1,8 @@
 app_name = "license_manager"
 app_title = "License Manager"
-app_publisher = "License Manager Vendor"
+app_publisher = "Graphity Group"
 app_description = "Offline license enforcement system for ERPNext"
-app_email = "admin@license-manager.local"
+app_email = "admin@graphitygroup.com"
 app_license = "mit"
 
 # ── Auth hooks ────────────────────────────────────────────────────────────────
