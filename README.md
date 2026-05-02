@@ -1,6 +1,6 @@
 ### License Manager
 
-Offline license enforcement system for ERPNext
+Offline license enforcement system for ERPNext by Graphity Group
 
 ### Installation
 
