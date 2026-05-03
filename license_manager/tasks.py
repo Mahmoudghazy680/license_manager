@@ -30,8 +30,8 @@ def daily_license_check() -> None:
         _notify_admins(
             subject="[License Manager] No valid license installed",
             message=(
-                "No valid license is installed on this ERPNext site. "
-                "Please import a license file from Setup > License Manager as soon as possible."
+                "No valid license is installed on your site. "
+                "Please contact Graphity Group at 01065248248 ."
             ),
         )
         return

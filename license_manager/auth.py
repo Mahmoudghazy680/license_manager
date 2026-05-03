@@ -1,6 +1,12 @@
 import frappe
 
 
+LICENSE_EXPIRED_MESSAGE = (
+    "License has expired.\n"
+    "Please contact Graphity Group at 01065248248."
+)
+
+
 def check_license() -> None:
     """Validate the site license on every authenticated request.
 
@@ -11,8 +17,8 @@ def check_license() -> None:
     Behaviour:
     - Guest users are always allowed through (no license check).
     - Administrator is always allowed through (to enable license recovery).
-    - For all other users, a valid license must be present; otherwise the
-      request is blocked with a ``frappe.PermissionError``.
+        - For all other users, a valid license must be present; otherwise the
+            request is blocked with a validation error.
     """
     # Skip for system-level users that must always have access
     user = getattr(frappe.session, "user", None) or "Guest"
@@ -30,12 +36,11 @@ def check_license() -> None:
     try:
         license_data = get_active_license()
     except frappe.ValidationError as exc:
-        frappe.throw(str(exc), frappe.PermissionError)
+        frappe.throw(str(exc), frappe.ValidationError)
         return
 
     if license_data is None:
         frappe.throw(
-            "No valid license found. Please import a license file under "
-            "Setup > License Manager.",
-            frappe.PermissionError,
+            LICENSE_EXPIRED_MESSAGE,
+            frappe.ValidationError,
         )

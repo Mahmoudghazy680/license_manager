@@ -109,7 +109,10 @@ def check_expiry(license_data: dict) -> None:
 
     now = datetime.now(tz=timezone.utc)
     if now > expiry_dt:
-        frappe.throw("License has expired.", LicenseExpiredError)
+        frappe.throw(
+            "License has expired. Please contact Graphity Group at 01065248248.",
+            LicenseExpiredError,
+        )
 
 
 def check_node_id(license_data: dict) -> None:
